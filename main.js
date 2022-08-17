@@ -69,7 +69,7 @@ input.addEventListener("keypress", (event) => {
     const divTask = `
       <div id="Task" class="task">
       <span class="icon-star-full icon"></span>
-      <p>${inputcontent.value}</p>
+      <p id="taskParagraph" >${inputcontent.value}</p>
      
      <div>
        <span class="icon-angry2 icon"></span>
