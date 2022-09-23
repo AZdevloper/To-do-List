@@ -27,8 +27,15 @@ buttonadd.addEventListener("click", (event) => {
     <span class="icon-star-full icon"></span>
     <p>${inputcontent.value}</p>
    
-   <div>
-     <span class="icon-angry2 icon"></span>
+   <div>     
+        <input
+   type="checkbox"
+   name=""
+   id=""
+   class="icon-angry2 icon"
+   style="width: 0.6em; height: 0.6em"
+ />
+   
      <span id="trashbin" class="icon-bin2 icon"></span>
    </div>
 </div>`;
@@ -43,16 +50,13 @@ buttonadd.addEventListener("click", (event) => {
       img: '<span class="icon-checkmark alert-img"></span>',
     });
   }
-  inputcontent.value ="";
+  inputcontent.value = "";
 });
 
 const input = document.getElementById("input");
 
 input.addEventListener("keypress", (event) => {
- 
-
   var inputcontent = document.getElementById("input");
- 
 
   if (event.code == "Enter" && inputcontent.value === "") {
     event.preventDefault();
@@ -64,7 +68,7 @@ input.addEventListener("keypress", (event) => {
       buttonText: "Okay",
       img: ' <span class="icon-warning alert-img"></span>',
     });
-  } else if  (event.key === "Enter" &&  inputcontent.value !== "" ) {
+  } else if (event.key === "Enter" && inputcontent.value !== "") {
     event.preventDefault();
     const divTask = `
       <div id="Task" class="task">
@@ -87,7 +91,7 @@ input.addEventListener("keypress", (event) => {
       img: '<span class="icon-checkmark alert-img"></span>',
     });
 
-    inputcontent.value ="";
+    inputcontent.value = "";
   }
   // faire quelque chose
 });

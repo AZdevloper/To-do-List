@@ -4,42 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- CSS only -->
-<link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="icon-file/style.css" />
-    <link rel="stylesheet" href="cute-alert-master/style.css">
-    
+    <link rel="stylesheet" href="cute-alert-master/style.css" />
+
     <script defer src="cute-alert-master/cute-alert.js"></script>
     <script defer src="main.js"></script>
     <title>to do list</title>
   </head>
-  <body>
-   <div>
-     <h2>to do list helps you to remember your dailly tasks </h2>
-     <h1>To do list</h1>
+  <body>   
+     <div class="allTaskContainer">
+    <h2>to do list helps you to remember your dailly tasks</h2>
+    <h1>To do list</h1>
+
+
+    </button>
     <div id="allTask">
       <div id="Task" class="task">
         <span class="icon-star-full icon"></span>
         <p id="taskParagraph">task1</p>
-     
+
         <div>
-          <span class="icon-angry2 icon"></span>
+          <input
+            type="checkbox"
+            name=""
+            id=""
+            class=" icon"
+            style="width: 0.6em; height: 0.6em"
+          />
+          <!-- <span class="icon-angry2 icon"></span> -->
           <span id="trashbin" class="icon-bin2 icon"></span>
         </div>
       </div>
-   </div>
-     
-    
-      </div>
-     <h1>write your next task</h1>
-     <form class="inputfield" action="" style="z-index: 1000 !important;">
-       <input id="input" class="input" type="text" placeholder="inter new task ..." />
-       <button id="buttonadd" class="button" type="button">add Task</button>
-       <span class="icon-radio-checked"></span>
-     </form>
- 
-  
+    </div>
 
+    <h1>write your next task</h1>
+    <form class="inputfield" action="" style="z-index: 1000 !important">
+      <input
+        id="input"
+        class="input"
+        type="text"
+        placeholder="inter new task ..."
+      />
+      <button id="buttonadd" class="button" type="button">add Task</button>
+      <span class="icon-radio-checked"></span>
+    </form>
+  </div>
   </body>
 </html>
