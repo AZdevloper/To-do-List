@@ -7,7 +7,8 @@
 function getId(id) {
   return document.getElementById(id);
 }
-var cuteAlertWarning = ()=>{
+//cuteAlertWarning
+var cuteAlertWarning = () => {
   cuteAlert({
     type: "warning",
     title: " field is empty ",
@@ -15,9 +16,9 @@ var cuteAlertWarning = ()=>{
     buttonText: "Okay",
     img: ' <span class="icon-warning alert-img"></span>',
   });
-
-}
-var cuteAlertSuccess = ()=>{
+};
+//  cuteAlertSuccess
+var cuteAlertSuccess = () => {
   cuteAlert({
     type: "success",
     title: "Success Title",
@@ -25,92 +26,63 @@ var cuteAlertSuccess = ()=>{
     buttonText: "Okay",
     img: '<span class="icon-checkmark alert-img"></span>',
   });
-
-}
-var creatNewTask=()=>{
-  
+}; // creatNewTask
+var creatNewTask = () => {
   const divTask = `
-  <div id="Task" class="task">
-  <span class="icon-star-full icon"></span>
-  <p id="taskParagraph">${inputcontent.value}</p>
- 
- <div>     
-      <input
- type="checkbox"
- name=""
- id=""
- class="icon-angry2 icon"
- style="width: 0.6em; height: 0.6em"
-/>
- 
-   <span id="trashbin" class="icon-bin2 icon"></span>
- </div>
-</div>`;
+      <div id="Task" class="task">
+        <span class="icon-star-full icon"></span>
+        <p class="taskParagraph">${inputcontent.value}</p>
+        <span id="trashbin" class="icon-bin2 icon"></span>
+
+      
+        <div>     
+            <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    class="icon-angry2 icon"
+                    style="width: 0.6em; height: 0.6em"
+            />
+        
+        </div>
+      </div>`;
   const allTask = document.getElementById("allTask");
   allTask.innerHTML += divTask;
   // alert task added
   cuteAlertSuccess();
-
-
-
-}
+};
 const buttonadd = document.getElementById("buttonadd");
 
 var inputcontent = document.getElementById("input");
-
+// add addEventListener to buttonAdd
 buttonadd.addEventListener("click", (event) => {
   if (inputcontent.value === "") {
     // field is empty
     cuteAlertWarning();
- 
   } else {
-    
     creatNewTask();
   }
   inputcontent.value = "";
 });
 
 const input = document.getElementById("input");
-
+// add addEventListener to input
 input.addEventListener("keypress", (event) => {
   var inputcontent = document.getElementById("input");
-
+  // field is empty and press enter key
   if (event.code == "Enter" && inputcontent.value === "") {
     event.preventDefault();
-    // field is empty
-    cuteAlert({
-      type: "warning",
-      title: " field is empty ",
-      message: "pleas enter your task befor submit ",
-      buttonText: "Okay",
-      img: ' <span class="icon-warning alert-img"></span>',
-    });
+
+    cuteAlertWarning();
+
+    // field is not empty and press enter key
   } else if (event.key === "Enter" && inputcontent.value !== "") {
     event.preventDefault();
-    const divTask = `
-      <div id="Task" class="task">
-      <span class="icon-star-full icon"></span>
-      <p id="taskParagraph" >${inputcontent.value}</p>
-     
-     <div>
-       <span class="icon-angry2 icon"></span>
-       <span id="trashbin" class="icon-bin2 icon"></span>
-     </div>
-  </div>`;
-    const allTask = document.getElementById("allTask");
-    allTask.innerHTML += divTask;
-    // alert task added
-    cuteAlert({
-      type: "success",
-      title: "Success Title",
-      message: "Task aded",
-      buttonText: "Okay",
-      img: '<span class="icon-checkmark alert-img"></span>',
-    });
+
+    creatNewTask();
 
     inputcontent.value = "";
   }
-  // faire quelque chose
 });
 
 const trashbin = getId("trashbin");
@@ -123,17 +95,19 @@ allTask.addEventListener("click", (event) => {
     event.target.parentElement.parentElement.remove();
   }
 
-  // angry to heart
+  // creat icon heart
 
   if (event.target.className === "icon-angry2 icon") {
     const heart = document.createElement("span");
     heart.classList.add("icon-heart");
     heart.classList.add("icon");
     event.target.parentElement.append(heart);
-    // remove angry face
-   
+
+
     // barre de task
-    const taskParagraph = getId("taskParagraph");
+   
+    const taskParagraph = document.getElementsByClassName("taskParagraph")[0];
+    console.log(taskParagraph);
     taskParagraph.style.textDecoration = "line-through";
   }
 });
